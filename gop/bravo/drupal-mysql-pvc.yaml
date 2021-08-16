@@ -1,0 +1,15 @@
+#Claim Name: drupal-mysql-pvc
+#Storage Request: 5Gi
+#Access modes: ReadWriteOnce
+#Bind to Volume: drupal-mysql-pv
+
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: drupal-mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

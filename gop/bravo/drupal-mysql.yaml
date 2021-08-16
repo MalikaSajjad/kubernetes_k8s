@@ -1,0 +1,68 @@
+#Name: drupal-mysql
+#Replicas: 1
+#Image: mysql:5.7
+#Deployment Volume uses PVC : drupal-mysql-pvc
+#Volume Mount Path: /var/lib/mysql, subPath: dbdata
+#Deployment: 'drupal-mysql' running
+
+#arrow inwards from servie
+#Service Endpoint: drupal-mysql pod
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal-mysql
+  labels:
+    name: drupal-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: drupal-mysql
+  template:
+    metadata:
+      name: drupal-mysql
+      labels:
+        name: drupal-mysql
+    spec:
+      containers:
+        - name: drupal-mysql
+          image: mysql:5.7
+          ports:
+            - protocol: TCP
+              containerPort: 3306
+              name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: drupal-mysql-secret
+                  key: MYSQL_ROOT_PASSWORD
+            - name: MYSQL_DATABASE
+              valueFrom:
+                secretKeyRef:
+                  name: drupal-mysql-secret
+                  key: MYSQL_DATABASE
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: drupal-mysql-secret
+                  key: MYSQL_USER
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: drupal-mysql-secret
+                  key: MYSQL_PASSWORD
+
+#          envFrom:
+#            - secretRef:
+#                name: drupal-mysql-secret
+          volumeMounts:
+          - mountPath: /var/lib/mysql
+            subPath: dbdata
+            name: vol-drupal
+      volumes:
+        - name: vol-drupal
+          persistentVolumeClaim:
+            claimName: drupal-mysql-pvc

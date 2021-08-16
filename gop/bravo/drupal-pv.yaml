@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: drupal-pv
+  labels:
+    name: drupal-pv
+spec:
+  persistentVolumeReclaimPolicy: Delete
+  claimRef:
+    namespace: default
+    name: drupal-pvc
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /drupal-data

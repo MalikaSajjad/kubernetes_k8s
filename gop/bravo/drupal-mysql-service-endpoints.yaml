@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: drupal-mysql-service
+subsets:
+  - addresses:
+      - ip: 192.0.2.42
+    ports:
+      - port: 3306
