@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+  labels:
+    name: fastapi 
+    app: pythonfastAPI
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: fastapi 
+  template:
+    metadata:
+      labels:
+        name: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: malikasajjad/fastapi_k8s_configmap
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: special-config

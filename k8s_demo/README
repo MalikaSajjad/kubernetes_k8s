@@ -1,0 +1,5 @@
+python fast API hello world
+manifest files - deployment, replica set, pod
+secrets/config maps
+service - clusterip, nodePort, load balancer
+Ingress - nginx ingress controller

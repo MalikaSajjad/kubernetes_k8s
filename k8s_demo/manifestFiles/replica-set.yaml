@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-set
+  labels:
+    name: fastapi
+    app: pythonfastAPI
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      name: fastapi 
+  template:
+    metadata:
+      name: fastapi
+      labels:
+        name: fastapi
+    spec:
+      containers:
+      - name: fastapi
+        image: malikasajjad/fastapi
