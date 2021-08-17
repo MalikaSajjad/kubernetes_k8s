@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: redis03
+  labels:
+    name: redis03
+spec:
+  storageClassName: manual
+  persistentVolumeReclaimPolicy: Retain
+#  claimRef:
+#    namespace: default
+#    name: redis03-pvc
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 1Gi
+  hostPath:
+    path: /redis03
