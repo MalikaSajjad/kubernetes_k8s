@@ -38,7 +38,7 @@ spec:
           readOnly: false
       volumes:
       - name: conf
-        ConfigMap:
+        configMap:
           name: redis-cluster-configmap
           defaultMode: 0755
 

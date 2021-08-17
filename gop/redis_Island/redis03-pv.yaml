@@ -5,8 +5,8 @@ metadata:
   labels:
     name: redis03
 spec:
-  storageClassName: manual
-  persistentVolumeReclaimPolicy: Retain
+#  storageClassName: manual
+#  persistentVolumeReclaimPolicy: Retain
 #  claimRef:
 #    namespace: default
 #    name: redis03-pvc
