@@ -20,7 +20,7 @@ spec:
         image: postgres:9.4
         envFrom:
         - configMapRef:
-            name: postgres-config
+            name: postgres-config
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
