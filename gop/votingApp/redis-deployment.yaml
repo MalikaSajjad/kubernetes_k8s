@@ -16,7 +16,7 @@ spec:
         name: redis-deployment
     spec:
       containers:
-      - name: name: redis-deployment
+      - name: redis-deployment
         image: redis:alpine
         volumeMounts:
         - mountPath: /data
