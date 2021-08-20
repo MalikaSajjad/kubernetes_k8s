@@ -13,4 +13,4 @@ spec:
  #       pathType: Prefix
         backend:
           serviceName: iron-gallery-service
-            
+          servicePort: 80  
