@@ -16,7 +16,7 @@ spec:
         name: db-deployment
     spec:
       containers:
-      - name: name: db-deployment
+      - name: db-deployment
         image: postgres:9.4
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
