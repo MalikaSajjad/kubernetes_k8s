@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maria-config
+  labels:
+    app: maria
+data:
+  MYSQL_ROOT_PASSWORD: Braavo
+  MYSQL_DATABASE: lychee
+  MYSQL_USER: lychee
+  MYSQL_PASSWORD: lychee
