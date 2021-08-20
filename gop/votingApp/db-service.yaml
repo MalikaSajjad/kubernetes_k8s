@@ -3,6 +3,7 @@ kind: Service
 metadata:
   namespace: vote
   name: db
+spec:
 #  type: NodePort
   ports:
   - port: 5432

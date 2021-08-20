@@ -3,6 +3,7 @@ kind: Service
 metadata:
   namespace: vote
   name: redis
+spec:
 #  type: NodePort
   ports:
   - port: 6379

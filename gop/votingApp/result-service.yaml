@@ -3,6 +3,7 @@ kind: Service
 metadata:
   namespace: vote
   name: result-service
+spec:
   type: NodePort
   ports:
   - port: 5001
